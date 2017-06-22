@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %link{:rel => 'stylesheet', :href => 'style.css'}
+  %body
+
+    %table.farm
+      - farm.rows.times do |row|
+        %tr
+          - farm.cols.times do |col|
+            - loc = "#{row}:#{col}"
+            - rack = farm.racks[loc]
+            %td
+
+              %table.rack
+                %caption= "Rack #{loc}"
+                - rack.servers.each_with_index do |server, server_idx|
+                  %tr
+                    %td
+
+                      %table.server
+                        %caption= "Server #{server_idx}"
+                        %tr
+                          - server.cards.each_with_index do |card, idx|
+
+                            %td
+                              .card= "GPU&nbsp;#{idx}"

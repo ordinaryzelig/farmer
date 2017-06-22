@@ -1,3 +1,5 @@
+require_relative 'init'
+
 class Farm
   attr_reader :racks
   attr_reader :rows, :cols
@@ -41,7 +43,7 @@ class Server
   attr_accessor :rack
   attr_reader :cards
 
-  SLOTS = 11
+  SLOTS = 16
 
   def initialize
     @cards = Array(SLOTS)
@@ -78,3 +80,8 @@ farm.rows.times do |row|
 
   end
 end
+
+template = File.read(__dir__ + '/index.haml')
+html_path = __dir__ + '/index.html'
+html = Haml::Engine.new(template).render(Object.new, {:farm => farm})
+File.open(html_path, 'w') { |f| f.write html }

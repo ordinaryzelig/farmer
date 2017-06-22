@@ -1,0 +1,20 @@
+.farm {
+  border: 2px solid brown;
+}
+
+.rack {
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.server {
+  border: 2px solid green;
+  margin: 5px;
+  height: 50px;
+}
+
+.card {
+  border: 2px solid blue;
+  transform: rotate(270deg);
+  font-size: 10px;
+}
